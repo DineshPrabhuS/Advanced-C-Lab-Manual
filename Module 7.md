@@ -16,12 +16,32 @@ Else
  
 Program:
 
-//type your code here
-
+```
+#include <stdio.h>
+#include <string.h>
+typedef struct{
+    int age;
+    char name[20];
+    char elg[5];
+}eligibility;
+int main(){
+    eligibility m;
+    scanf("%d\n%s", &m.age, m.name);
+    if(m.age > 18){
+        strcpy(m.elg, "yes");
+    }
+    else{
+        strcpy(m.elg, "no");
+    }
+    printf("Age:%d\n", m.age);
+    printf("Name:%svaccine:%d\n", m.name, m.age);
+    printf("eligibility:%s", m.elg);
+}
+```
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/b709672e-2432-4568-b307-884c2534232a)
 
 
 Result:
@@ -34,27 +54,37 @@ Aim:
 To write a C program for passing structure as function and returning a structure from a function
 
 Algorithm:
-1.	Define structure numbers with members a and b.
-2.	Declare variable n of type numbers.
-3.	Prompt the user to enter values for a and b.
-4.	Input values for a and b into n using scanf.
-5.	Call the add function with n as an argument.
-6.	Print the result returned by the add function.
-7.	Return 0
- 
+1. Define structure Distance with member feet.
+2. Declare variables d1, d2, dist of type Distance.
+3. Declare pointer result of type struct Distance*.
+4. Read values for d1.feet and d2.feet using scanf.
+5. Assign address of dist to result.
+6. Set result->feet = d1.feet + d2.feet.
+7. Print result->feet as the sum of distances.
+
+
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+struct Distance {
+   int feet;
+} d1, d2, dist, *result;
 
+int main() {
+    scanf("%d\n%d", &d1.feet, &d2.feet);
+    result = &dist;
+    result->feet = d1.feet + d2.feet;
+    printf("Sum of distances = %d'", result->feet);
+    return 0;
+}.
+```
 
 
 Output:
 
-
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/6285e0d4-84d2-442a-af82-9f02dfb8eaa9)
 
 
 Result:
