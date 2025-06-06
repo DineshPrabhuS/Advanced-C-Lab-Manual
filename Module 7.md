@@ -1,18 +1,16 @@
-EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
+***EXP NO:1*** C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
 
 Aim:
 To write a C program for array of structure to check eligibility for the vaccine person age above 6 years of age.
 
 Algorithm:
-1.	Declare structure eligible with age (integer) and n (character array)
-2.	Declare variable e of type eligible
-3.	Input age and name using scanf, store in e
-4.	If e.age <= 6
--	Print "Vaccine Eligibility: No"
-Else
--	Print "Vaccine Eligibility: Yes"
-5.	Print details (e.age, e.n)
-6.	Return 0
+1. Declare structure eligible with members age (integer) and n (character array).
+2. Declare variable e of type eligible.
+3. Input age and name using scanf, store in e.age and e.n.
+4. If e.age <= 6 print "Vaccine Eligibility: No"
+5. Else print "Vaccine Eligibility: Yes"
+6. Print e.age and e.n.
+7. Return 0.
  
 Program:
 
@@ -49,91 +47,97 @@ Thus, the program is verified successfully.
 
 
 
-EXP NO:2 C PROGRAM FOR PASSING STRUCTURES AS FUNCTION ARGUMENTS AND RETURNING A STRUCTURE FROM A FUNCTION
+***EXP NO:2*** C PROGRAM TO ADD, SUBTRACT AND MULTIPLY TWO COMPLEX NUMBER USING STRUCTURE
 Aim:
-To write a C program for passing structure as function and returning a structure from a function
+To write a  C Program to add, subtract and multiply two complex number using structure
 
 Algorithm:
-1. Define structure Distance with member feet.
-2. Declare variables d1, d2, dist of type Distance.
-3. Declare pointer result of type struct Distance*.
-4. Read values for d1.feet and d2.feet using scanf.
-5. Assign address of dist to result.
-6. Set result->feet = d1.feet + d2.feet.
-7. Print result->feet as the sum of distances.
-
+1. Declare structure complex with members x and y as integers.
+2. Declare variables a, b, r_add, r_sub, r_mul of type complex.
+3. Input values of a.x, a.y, b.x, b.y using scanf.
+4. Compute r_add.x = a.x + b.x and r_add.y = a.y + b.y.
+5. Compute r_sub.x = a.x - b.x and r_sub.y = a.y - b.y.
+6. Compute r_mul.x = (a.x * b.x) - (a.y * b.y).
+7. Compute r_mul.y = (a.x * b.y) + (b.x * a.y).
+8. Print the result of addition in the format: "The no. is= r_add.x + r_add.yi"
+9. Print the result of subtraction in the format: "The no. is= r_sub.x + r_sub.yi"
+10. Print the result of multiplication in the format: "The no. is= r_mul.x + r_mul.yi"
+11. Return 0.
 
 Program:
 
 ```
 #include <stdio.h>
 
-struct Distance {
-   int feet;
-} d1, d2, dist, *result;
+struct complex{
+    int x,y;
+};
 
-int main() {
-    scanf("%d\n%d", &d1.feet, &d2.feet);
-    result = &dist;
-    result->feet = d1.feet + d2.feet;
-    printf("Sum of distances = %d'", result->feet);
-    return 0;
-}.
+int main(){
+    struct complex a, b, r_add,r_sub,r_mul;
+    scanf("%d\n%d\n%d\n%d", &a.x, &a.y, &b.x, &b.y);
+    
+    r_add.x = a.x + b.x;
+    r_add.y = a.y + b.y;
+    
+    r_sub.x = a.x - b.x;
+    r_sub.y = a.y - b.y;
+    
+    r_mul.x = (a.x * b.x) - (a.y * b.y);
+    r_mul.y = (a.x * b.y) + (b.x * a.y);
+    
+    printf("The no. is= %d+%di\n", r_add.x, r_add.y);
+    printf("The no. is= %d+%di\n", r_sub.x, r_sub.y);
+    printf("The no. is= %d+%di", r_mul.x, r_mul.y);
+}
 ```
 
 
 Output:
 
-![image](https://github.com/user-attachments/assets/6285e0d4-84d2-442a-af82-9f02dfb8eaa9)
-
+![image](https://github.com/user-attachments/assets/81a5caed-60df-4a06-ac01-c75fb096575b)
 
 Result:
 Thus, the program is verified successfully
 
 
  
-EXP.NO:3 C PROGRAM TO READ A FILE NAME FROM USER AND WRITE THAT FILE USING FOPEN()
+***EXP.NO:3*** C PROGRAM TO READ A FILE NAME FROM USER AND CREATE THAT FILE USING FOPEN()
 
 Aim:
 To write a C program to read a file name from user
 
 Algorithm:
-1.	Include the necessary header file stdio.h.
-2.	Begin the main function.
-3.	Declare a file pointer p.
-Declare a character array name to store the file name.
-4.	Prompt the user to enter a file name.
-Use scanf to input the file name into the name array.
-5.	Print a message indicating that the file with the specified name has been created successfully.
-6.	Use fopen to open a file with the name provided by the user in write mode ("w").
--	If successful, continue to the next step.
--	If unsuccessful, print an error message and exit the program with a non-zero status.
-1.	Print a message indicating that the file has been opened successfully.
-2.	Use fclose to close the file.
-3.	Print a message indicating that the file has been closed.
-4.	End the main function.
-5.	Return 0 to indicate successful program execution.
+1. Declare a character array file to store the file name.
+2. Declare a file pointer fptr.
+3. Input the file name using scanf and store in file.
+4. Open the file in write mode using fopen and assign to fptr.
+5. Print "file File Created Successfully".
+6. Print "file File Opened".
+7. Close the file using fclose(fptr).
+8. Print "file File Closed".
+9. Return 0.
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
-
-
+int main(){
+    char file[20];
+    FILE *fptr;
+    scanf("%s", file);
+    fptr = fopen(file, "w");
+    printf("%s File Created Successfully\n", file);
+    printf("%s File Opened\n", file);
+    fclose(fptr);
+    printf("%s File Closed", file);
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/4583effd-c489-4a06-b021-a576bf6f8658)
 
 
 Result:
@@ -141,41 +145,53 @@ Thus, the program is verified successfully
  
 
 
-EXP NO:4   PROGRAM TO READ A FILE NAME FROM USER, WRITE THAT FILE AND INSERT TEXT IN TO THAT FILE
+***EXP NO:4*** PROGRAM TO READ A FILE NAME FROM USER, WRITE THAT FILE AND INSERT TEXT IN TO THAT FILE
 Aim:
 To write a C program to read, a file and insert text in that file
 Algorithm:
-1.	Include the necessary header file stdio.h.
-2.	Begin the main function.
-3.	Declare a file pointer p.
-Declare character arrays name and text. Declare an integer variable num.
-4.	Prompt the user to enter a file name and the number of strings.
-Use scanf to input the file name into the name array and the number of strings into the num variable.
-5.	Use fopen to open a file with the name provided by the user in write mode ("w").
--	If successful, continue to the next step.
--	If unsuccessful, print an error message and exit the program with a non-zero status.
-6.	Print a message indicating that the file has been opened successfully.
-1.	Use a loop to input strings from the user and write them to the file using fputs.
-2.	Use fclose to close the file.
-3.	Print a message indicating that data has been added successfully.
-4.	End the main function.
-5.	Return 0 to indicate successful program execution.
+
+1. Declare a character array file to store the file name.
+2. Declare a file pointer fptr.
+3. Input the file name using scanf and store in file.
+4. Open the file in write mode using fopen and assign to fptr.
+5. Print "file Opened".
+6. Declare an integer variable n.
+7. Input the number of lines n using scanf.
+8. Declare a 2D character array line[n][20] to store n lines of text.
+9. Repeat for i = 0 to n-1:
+    a. Input a line of text using scanf("%[^\n]") and store in line[i].
+    b. Write line[i] to file using fprintf.
+10. Close the file using fclose(fptr).
+11. Print "Data added Successfully".
+12. Return 0.
+
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
-
-
+int main(){
+    char file[20];
+    FILE *fptr;
+    scanf("%s", file);
+    fptr = fopen(file, "w");
+    printf("%s Opened\n", file);
+    int n;
+    scanf("%d\n", &n);
+    char line[n][20];
+    for(int i = 0; i < n; i++){
+        scanf("%[^\n]\n", line[i]);
+        fprintf(fptr, "%s\n", line[i]);
+    }
+    fclose(fptr);
+    printf("Data added Successfully");
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/fe8055a9-d2a7-49a0-9011-434225ad8435)
 
 
 Result:
@@ -183,53 +199,66 @@ Thus, the program is verified successfully
 
 
 
-Ex No 5 : C PROGRAM TO DISPLAY STUDENT DETAILS USING STRUCTURE
+***Ex No 5:*** TO CREATE A STRUCTURE FOR ELECTRICITY BILL CALCULATION USING TYPEDEF & FUNCTION-PASSING STRUCTURE TO A FUNCTION BY VALUE
 
 Aim:
-The aim of this program is to dynamically allocate memory to store information about multiple subjects (name and marks), input the details for each subject, and then display the stored information. Finally, it frees the allocated memory to prevent memory leaks.
+To create a structure for Electricity Bill calculation using typedef & function-Passing structure to a function by value (use service no, name, previous reading, current reading, unit consumption & amount as data members).
 
 Algorithm:
-1.Input the number of subjects.
+1. Define structure electricityBill with members:
+    - sNo (integer)
+    - sName (character array)
+    - prev (integer)
+    - curr (integer)
+    - units (integer)
+    - amt (float)
+2. Declare variable c of type electricityBill.
+3. Input service number, service name, current reading, and previous reading using scanf, store in c.sNo, c.sName, c.curr, c.prev.
+4. Calculate units consumed: c.units = c.curr - c.prev.
+5. If c.units <= 100
+    a. Calculate amount: c.amt = c.units * 3.
+6. Else if c.units > 100 and c.units <= 300
+    a. Calculate amount: c.amt = 300 + (c.units - 100) * 4.
+7. Else
+    a. Calculate amount: c.amt = 1100 + (c.units - 300) * 5.
+8. Print service number, service name, unit consumption, and amount (formatted to 2 decimal places).
+9. Return 0.
 
-2.Read the integer value n from the user, which represents the number of subjects.
-
-3.Dynamically allocate memory:
-
-4.Use malloc to allocate memory for n subjects. Each subject has a name (array of characters) and marks (integer).
-
-5.If memory allocation fails (i.e., the pointer s is NULL), display an error message and exit the program.
-
-6.Input the details of each subject
-
-7.Use a for loop to read the name and marks of each subject using scanf. For each subject, store the name as a string and marks as an integer in the dynamically allocated memory.
-
-8.Display the details of each subject
-
-9.Use another for loop to print the name and marks of each subject.
-
-10.Free the allocated memory
-
-11.After all operations are done, call free(s) to release the dynamically allocated memory.
-
-12.Return from the main function
-
-13.End the program by returning 0.
 
 Program:
 
-//type your code here
-
-
-
+```
+#include <stdio.h>
+typedef struct electricityBill{
+    int sNo;
+    char sName[20];
+    int prev, curr;
+    int units;
+    float amt;
+}eb;
+int main(){
+    eb c;
+    scanf("%d\n%s\n%d\n%d", &c.sNo, c.sName, &c.curr, &c.prev);
+    c.units = c.curr - c.prev;
+    if(c.units <= 100){
+        c.amt = c.units * 3;
+    }
+    else if(c.units > 100 && c.units <= 300){
+        c.amt = 300 + (c.units - 100) * 4;
+    }
+    else{
+        c.amt = 1100 + (c.units - 300) * 5;
+    }
+    printf("service number:%d\n", c.sNo);
+    printf("service name:%s\n", c.sName);
+    printf("unit consumption:%d\n", c.units);
+    printf("amount:%.2f", c.amt);
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/8eefdd57-e0ba-4494-9758-c97de2f22018)
 
 
 Result:
